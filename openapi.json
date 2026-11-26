@@ -1,0 +1,352 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Help Desk Pro API",
+    "version": "1.0.0"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/api/login": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tickets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "customer": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": [
+                      "low",
+                      "normal",
+                      "high",
+                      "urgent"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "open",
+                      "progress",
+                      "resolved"
+                    ]
+                  },
+                  "assigned_to": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "customer",
+                  "priority",
+                  "status"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tickets/{id}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "customer": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": [
+                      "low",
+                      "normal",
+                      "high",
+                      "urgent"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "open",
+                      "progress",
+                      "resolved"
+                    ]
+                  },
+                  "assigned_to": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "customer",
+                  "priority",
+                  "status"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "204": {
+            "description": "Sem conte\u00fado"
+          },
+          "400": {
+            "description": "Dados inv\u00e1lidos"
+          },
+          "401": {
+            "description": "N\u00e3o autenticado"
+          },
+          "403": {
+            "description": "Sem permiss\u00e3o"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
